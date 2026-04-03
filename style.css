@@ -1,0 +1,446 @@
+/* ============================================================
+   STYLE.CSS — Estilos do site da Biblioteca
+   
+   Paleta de cores terrosas (earthy tones):
+   - Fundo principal:    #FAF7F2  (off-white quente)
+   - Fundo secundário:   #F0EBE3  (bege claro)
+   - Borda / divisórias: #DDD5C9  (areia)
+   - Texto principal:    #3D3229  (marrom escuro)
+   - Texto secundário:   #6B5E50  (marrom médio)
+   - Destaque / botões:  #8B7355  (marrom quente)
+   - Botão hover:        #6F5B43  (marrom mais escuro)
+   - Header/Footer:      #3D3229  (marrom escuro)
+   
+   Tipografia: fontes padrão do sistema (sem-serif).
+   Você pode trocar depois por Google Fonts facilmente.
+   ============================================================ */
+
+
+/* ---------- RESET BÁSICO ----------
+   Remove margens e paddings padrão do navegador.
+   box-sizing: border-box faz padding e border
+   serem incluídos no tamanho total do elemento.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    /* Cor marrom que combina com o header e footer para o excesso da página */
+    background-color: #3D3229;
+    /* Bloqueia a rolagem para os lados independente da escala */
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* ---------- CORPO (BODY) ----------
+   Define a fonte, cor do texto e cor de fundo
+   para toda a página.
+*/
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #3D3229;
+    /* Body transparente para mostrar o marrom do HTML no overscroll */
+    background-color: transparent;
+    line-height: 1.6;
+
+    /* Bloqueia a rolagem para os lados */
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+
+    /* Sticky Footer: faz o corpo ocupar pelo menos 100% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   HEADER — Cabeçalho fixo no topo
+   ============================================================ */
+header {
+    background-color: #3D3229;
+    color: #FAF7F2;
+    padding: 16px 24px;
+}
+
+/* Organiza logo e nav lado a lado */
+.header-conteudo {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo: imagem + nome lado a lado */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 36px;
+    width: auto;
+}
+
+.logo span {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+
+/* ---------- NAVEGAÇÃO (NAV) ---------- */
+nav {
+    display: flex;
+    gap: 24px;
+}
+
+nav a {
+    color: #FAF7F2;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
+
+/* Efeito ao passar o mouse: fundo semitransparente */
+nav a:hover {
+    background-color: rgba(250, 247, 242, 0.15);
+}
+
+/* Link da página atual: destaque com fundo */
+nav a.link-ativo {
+    background-color: rgba(250, 247, 242, 0.2);
+}
+
+
+/* ============================================================
+   MAIN — Conteúdo principal
+   ============================================================ */
+main {
+    background-color: #FAF7F2; /* Fundo off-white agora fica no main */
+    flex: 1;
+    width: 100%;
+}
+
+
+.hero,
+.secao {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-bottom: 40px;
+}
+
+.hero {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #F0EBE3;
+    border-radius: 12px;
+}
+
+.secao h1,
+.secao h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #3D3229;
+}
+
+.secao p {
+    color: #6B5E50;
+    font-size: 16px;
+    max-width: 700px;
+}
+
+
+/* ---------- CARDS — Blocos de informação ----------
+   Usados para serviços, valores, etc.
+   Em telas grandes: 3 colunas.
+   Em telas pequenas: 1 coluna (veja @media abaixo).
+*/
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 240px;
+    background-color: #F0EBE3;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #3D3229;
+}
+
+.card p {
+    font-size: 15px;
+    color: #6B5E50;
+}
+
+
+/* ---------- LIVROS EM DESTAQUE ---------- */
+.livros {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.livro {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+}
+
+.livro img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8px;
+    background-color: #F0EBE3;
+}
+
+.livro p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #6B5E50;
+}
+
+
+/* ---------- EQUIPE — Membros ---------- */
+.equipe {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.membro {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.membro img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #F0EBE3;
+}
+
+.membro h3 {
+    margin-top: 12px;
+    font-size: 16px;
+    color: #3D3229;
+}
+
+.membro p {
+    font-size: 14px;
+    color: #6B5E50;
+}
+
+
+/* ============================================================
+   FORMULÁRIO DE CONTATO
+   ============================================================ */
+.formulario {
+    max-width: 560px;
+}
+
+/* Cada campo: label + input/textarea empilhados */
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #3D3229;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #3D3229;
+    background-color: #F0EBE3;
+    border: 1px solid #DDD5C9;
+    border-radius: 8px;
+    
+    /* Auto-ajuste de altura moderno (apenas navegadores baseados no Chrome/Edge) */
+    field-sizing: content;
+    min-height: 48px; /* Altura mínima de uma linha */
+    max-height: 150px; /* Limite para não esticar infinitamente */
+}
+
+/* Borda mais escura quando o campo está selecionado (foco) */
+.campo input:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: #8B7355;
+}
+
+/* Textarea: impede redimensionar na horizontal */
+.campo textarea {
+    resize: vertical;
+}
+
+/* Botão de envio */
+.formulario button {
+    padding: 12px 32px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: bold;
+    color: #FAF7F2;
+    background-color: #8B7355;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.formulario button:hover {
+    background-color: #6F5B43;
+}
+
+
+/* ---------- INFORMAÇÕES DE CONTATO ---------- */
+.info-contato {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    flex: 1;
+    min-width: 200px;
+    background-color: #F0EBE3;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.info-item h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #3D3229;
+}
+
+.info-item p {
+    font-size: 15px;
+    color: #6B5E50;
+}
+
+
+/* ============================================================
+   FOOTER — Rodapé
+   ============================================================ */
+footer {
+    background-color: #3D3229;
+    color: #FAF7F2;
+    padding: 24px;
+    /* Removido margin-top pois o flex: 1 no main já resolve o posicionamento */
+}
+
+.footer-conteudo {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-conteudo p {
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-links a {
+    color: #FAF7F2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   RESPONSIVIDADE
+   Em telas menores que 600px, os elementos empilham
+   verticalmente para caber na tela do celular.
+   ============================================================ */
+@media (max-width: 600px) {
+
+    /* Header: empilha logo e nav */
+    .header-conteudo {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Nav: centralizado */
+    nav {
+        gap: 16px;
+    }
+
+    /* Hero: menos padding */
+    .hero {
+        padding: 40px 16px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    /* Cards: uma coluna */
+    .cards {
+        flex-direction: column;
+    }
+
+    /* Livros: uma coluna */
+    .livros {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Equipe: uma coluna */
+    .equipe {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Info contato: uma coluna */
+    .info-contato {
+        flex-direction: column;
+    }
+
+    /* Footer: centralizado */
+    .footer-conteudo {
+        flex-direction: column;
+        text-align: center;
+    }
+}
